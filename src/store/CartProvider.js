@@ -21,6 +21,8 @@ function cartReducer(state, action) {
 }
 
 function CartProvider(params) {
+  //first element is always state snapshot,
+  //second is function allows you to dispatch(send) an action to reducer
   const [cartState, dispatchCartAction] = useReducer(
     cartReducer,
     defaultCartState
@@ -33,9 +35,14 @@ function CartProvider(params) {
   function addItemToCartHandler(item) {
     dispatchCartAction({ type: "ADD_ITEM", item: item });
   }
+ 
+  console.log(cartState.items)
+  console.log(cartState.totalAmount)
+
 
   const cartContext = {
     items: cartState.items,
+    size: cartState.items.size + 1,
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
