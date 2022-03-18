@@ -9,10 +9,15 @@ function HeaderCartButton(params) {
 
   const cartContext=useContext(CartContext)
 
+
   const numberOfCartItems= cartContext.items.reduce((currNumber,item) => {
+  
     return currNumber + item.amount
   },0); //array of data into a single value
- 
+
+  
+
+
   return (
     <button className={classes.button} onClick={params.onClick}>
       <span>

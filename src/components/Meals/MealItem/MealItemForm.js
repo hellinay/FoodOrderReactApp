@@ -14,7 +14,7 @@ function MealItemForm(params) {
         console.log(amountInputRef.current.value)
 
         const enteredAmount=amountInputRef.current.value;
-        const enteredAmountNumber = +enteredAmount;
+        const enteredAmountNumber = +enteredAmount; //convert string to number
 
         if(enteredAmount.trim().lenght=== 0 || 
         enteredAmountNumber <1 || 

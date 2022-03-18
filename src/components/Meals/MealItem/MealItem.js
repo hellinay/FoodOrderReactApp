@@ -7,11 +7,11 @@ function MealItem(params) {
 const price = `$${params.price.toFixed(2)}`
 const cartContext= useContext(CartContext)
 
-function addToCartHandler(amount) {
-  cartContext.addItem({
+function addToCartHandler(amount) { //coming from meal item form
+  cartContext.addItem({ //cart provider 
     id:params.id,
     name:params.name,
-    amount:params.amount,
+    amount:amount,
     price:params.price
   })
 }
@@ -20,13 +20,12 @@ function addToCartHandler(amount) {
   return (
     <li className={classes.meal}>
       <div>
-        <h3>{params.name}
+        <h3>{params.name}</h3>
+        <div className={classes.description}>{params.description}</div>
         <div className={classes.price}>{price}</div>
-</h3>
       </div>
-      <div className={classes.description}>{params.description}</div>
       <div>
-        <MealItemForm id={params.id} onAddToCart={addToCartHandler}></MealItemForm>
+        <MealItemForm id={params.id} onAddToCart={addToCartHandler} />
       </div>
     </li>
   );
