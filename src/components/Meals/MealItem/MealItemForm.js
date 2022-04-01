@@ -11,7 +11,6 @@ function MealItemForm(params) {
 
     function submitHandler(event) {
         event.preventDefault()
-        console.log(amountInputRef.current.value)
 
         const enteredAmount=amountInputRef.current.value;
         const enteredAmountNumber = +enteredAmount; //convert string to number
@@ -23,7 +22,6 @@ function MealItemForm(params) {
           setAmountIsValid(false)
         return;
       } 
-      console.log(enteredAmountNumber)
       params.onAddToCart(enteredAmountNumber);
     }
     
